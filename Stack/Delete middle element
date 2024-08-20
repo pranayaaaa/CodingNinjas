@@ -1,0 +1,23 @@
+https://www.naukri.com/code360/problems/delete-middle-element-from-stack_985246
+
+#Iterative Approach
+
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+	public static void deleteMiddle(Stack<Integer> inputStack, int N) {
+		// WRITE YOUR CODE HERE
+		Stack<Integer> s=new Stack<>();
+		int mid=N%2==0?N/2-1:N/2;
+		for(int i=0;i<mid;i++){
+			s.push(inputStack.pop());
+		}
+
+		inputStack.pop();
+
+		while(!s.isEmpty()){
+			inputStack.push(s.pop());
+		}
+
+	}
+}
