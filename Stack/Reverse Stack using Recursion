@@ -1,0 +1,26 @@
+https://www.naukri.com/code360/problems/reverse-stack-using-recursion_631875
+
+
+import java.util.Stack;
+
+public class Solution {
+    
+	public static void reverseStack(Stack<Integer> stack) {
+		if(stack.isEmpty()){
+			return;
+		}
+		int top = stack.pop(); 
+        reverseStack(stack);
+		insertBottom(stack,top);
+	}
+
+	public static void insertBottom(Stack<Integer> s,int element){
+		if(s.isEmpty()){
+			s.push(element);
+			return;
+		}
+		int top=s.pop();
+		insertBottom(s, element);
+		s.push(top);
+	}
+}
