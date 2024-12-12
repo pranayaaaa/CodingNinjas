@@ -1,0 +1,37 @@
+https://www.naukri.com/code360/guided-paths/oops-in-java/content/279841/offering/3844019?goalRedirection=true&leftPanelTabValue=PROBLEM
+
+import java.util.* ;
+import java.io.*; 
+class Person {
+	
+	// Complete the 
+	private String name;
+	private int age;
+
+	public void setName(String name){
+		this.name=name;
+	}
+	public String getName(){
+		return this.name;
+	}
+	public void setAge(int age){
+		this.age=age;
+	}
+	public int getAge(){
+		return this.age;
+	}
+}
+
+class Solution {
+	
+	public static void main(String args[]) {
+		Scanner sc=new Scanner(System.in);
+		Person obj=new Person();
+		String name=sc.nextLine();
+		int age=sc.nextInt();
+		obj.setAge(age);
+		obj.setName(name);
+		System.out.println("The name of the person is " + obj.getName() + " and the age is " + obj.getAge() + ".");
+
+	}
+}
