@@ -1,0 +1,50 @@
+https://www.naukri.com/code360/guided-paths/oops-in-java/content/279841/offering/3844018?goalRedirection=true&leftPanelTabValue=PROBLEM
+
+import java.util.Scanner;
+
+class Fraction {
+    private int num, den;
+
+    public Fraction(int num, int den) {
+        this.num = num;
+        this.den = den;
+        simplify();
+    }
+    public void add(Fraction f) {
+        num = f.den * num + den * f.num;
+        den *= f.den;
+        simplify();
+        print();
+    }
+    public void multiply(Fraction f) {
+        num *= f.num;
+        den *= f.den;
+        simplify();
+        print();
+    }
+    public void print() {
+        System.out.println(num + "/" + den);
+    }
+    private void simplify() {
+        int gcd = gcd(num, den);
+        num /= gcd;
+        den /= gcd;
+    }
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+}
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Fraction f1 = new Fraction(in.nextInt(), in.nextInt());
+        int t = in.nextInt();
+
+        while (t-- > 0) {
+            int op = in.nextInt();
+            Fraction f2 = new Fraction(in.nextInt(), in.nextInt());
+            if (op == 1) f1.add(f2);
+            else if (op == 2) f1.multiply(f2);
+        }
+    }
+}
