@@ -1,0 +1,35 @@
+https://www.naukri.com/code360/guided-paths/data-structures-algorithms/content/651074/offering/10442136?goalRedirection=true&leftPanelTabValue=PROBLEM
+
+import java.util.* ;
+import java.io.*; 
+import java.util.ArrayList;
+
+public class Solution 
+{
+    public static boolean findRedundantBrackets(String s) 
+    {
+        // Write your code here.
+        Stack<Character> stack=new Stack<>();
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(ch=='('||ch=='+'||ch=='*'||ch=='/'||ch=='-'){
+                stack.push(ch);
+            }
+            else if(ch==')'){
+                boolean hasOp=false;
+                while(stack.peek()!='('){
+                    char top=stack.pop();
+                    if(top=='+'||top=='*'||top=='/'||top=='-'){
+                        hasOp=true;
+                    }
+                }
+                stack.pop();
+
+                if(!hasOp){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
