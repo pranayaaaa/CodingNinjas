@@ -4,7 +4,6 @@ import java.util.* ;
 import java.io.*; 
 public class Deque 
 {
-    // Initialize your data structure.
     int n;
     int[] arr;
     int front;
